@@ -27,7 +27,7 @@ public class Decoder {
         return localChar;
     }
 
-    public void encodeText() {
+    public void decodeCypher() {
         StringBuilder sb = new StringBuilder(this.cypher);
 
         for (int i = 0; i < sb.length(); i++) {

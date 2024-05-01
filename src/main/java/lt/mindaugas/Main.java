@@ -1,18 +1,30 @@
 package lt.mindaugas;
 
+import java.io.IOException;
+
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("Welcome to Rome");
+    public static void main(String[] args) throws IOException {
+        System.out.println("Thank you for using Caesar cipher TOOLBOX, your secrets are really not safe with us!");
 
-        Encoder simpleText = new Encoder("A\tB\tC\tD\tE\tF\tG\tH\tI\tJ\tK\tL\tM\tN\tO\tP\tQ\tR\tS\tT\tU\tV\tW\tX\tY\tZ");
-        Decoder decode1 = new Decoder("X\tY\tZ\tA\tB\tC\tD\tE\tF\tG\tH\tI\tJ\tK\tL\tM\tN\tO\tP\tQ\tR\tS\tT\tU\tV\tW");
+        IOManager ioManager = new IOManager();
+        ioManager.enterMessage();
+        ioManager.chooseAction();
 
-        decode1.encodeText();
-
-        simpleText.encodeText();
-
-        System.out.println(simpleText.getCypher());
-        System.out.println(decode1.getPlainText());
+        switch (ioManager.getAction()) {
+            case 1 -> {
+                Encoder encoder = new Encoder(ioManager.getInputMessage());
+                encoder.encodeText();
+                ioManager.getCodedMessage(encoder.getCypher());
+            }
+            case 2 -> {
+                Decoder decoder = new Decoder(ioManager.getInputMessage());
+                decoder.decodeCypher();
+                ioManager.getCodedMessage(decoder.getPlainText());
+            }
+            default -> {
+                System.out.println("Invalid input: " + ioManager.getAction());
+            }
+        }
     }
 
 
