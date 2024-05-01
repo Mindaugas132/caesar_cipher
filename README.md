@@ -3,4 +3,4 @@ It is a type of substitution cipher in which each letter in the plaintext is rep
 For example, with a left shift of 3, D would be replaced by A, E would become B, and so on. 
 The method is named after Julius Caesar, who used it in his private correspondence.
 
-This is simple JAVA app, that let's you to decode and encode Caesar cipher.
+This is simple JAVA app, that let's you to decode and encode Caesar cipher. It works only with original left shift of 3 cypher.
